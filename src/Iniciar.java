@@ -1,6 +1,6 @@
 
 
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 public class Iniciar {
@@ -10,19 +10,11 @@ public class Iniciar {
     Investimento investimento = new Investimento(0.0);
 
     public void inicio() {
-        int opcao =0;
+        int opcao;
         do {
             exibeMenu();
-            try {
-                opcao = scanner.nextInt();
-                escolheOpcao(opcao);
-            }
-            catch (InputMismatchException e){
-                e.printStackTrace();
-            }
-
-
-
+            opcao = scanner.nextInt();
+            escolheOpcao(opcao);
         } while (opcao != 4);
     }
 
@@ -43,11 +35,14 @@ public class Iniciar {
             case 1 -> {
                 corrente.dadosConta();
                 System.out.println("Escolha uma opção: \n1-depositar\n2-sacar \n3-ver saldo");
-                int opcao1 = scanner.nextInt();
+
+                int opcao1  = scanner.nextInt();
+
                 switch (opcao1) {
 //                    depositar
                     case 1 -> {
                         System.out.println("Escolha uma opção: \n1-cheque\n2-dinheiro:");
+
                         int opcao2 = scanner.nextInt();
                         switch (opcao2) {
 //                            cheque

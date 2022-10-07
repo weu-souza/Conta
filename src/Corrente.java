@@ -26,22 +26,30 @@ public class Corrente extends Conta implements DadosDaConta {
 
     @Override
     public void depositarDinheiro(Integer a) {
-        super.depositarDinheiro(a);
-        System.out.println("rentabilidade mensal: " + rentabilidadePorJuros() + " ao mes");
+
+        if (a>0){
+            super.depositarDinheiro(a);
+            System.out.println("rentabilidade mensal: " + rentabilidadePorJuros() + " ao mes");
+        }
+
     }
 
     @Override
     public void depositarCheque(Double a) {
-        super.depositarCheque(a);
-        System.out.println("rentabilidade mensal: " + rentabilidadePorJuros() + " ao mes");
+
+        if (a>0){
+            super.depositarCheque(a);
+            System.out.println("rentabilidade mensal: " + rentabilidadePorJuros() + " ao mes");
+        }
     }
 
     @Override
     public void sacar(Double a) {
-        super.sacar(a);
-        System.out.println("taxa de operação: " + gerarTaxa());
-        consultarSaldo();
-    }
+        if (a>0){
+            super.sacar(a);
+            System.out.println("taxa de operação: " + gerarTaxa());
+        }
+        }
 
     @Override
     public void consultarSaldo() {
@@ -51,7 +59,6 @@ public class Corrente extends Conta implements DadosDaConta {
 
     @Override
     public Double gerarTaxa() {
-
         return 0.10;
     }
 

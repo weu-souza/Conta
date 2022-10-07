@@ -31,10 +31,17 @@ public class Poupanca extends Conta implements DadosDaConta {
 
     @Override
     public void depositarDinheiro(Integer a) {
-        if (a < 0) {
-            super.depositarDinheiro(0);
-        } else {
-            super.depositarDinheiro(a);
+        super.depositarDinheiro(a);
+        System.out.println("rentabilidade mensal: " + rentabilidadePorJuros() + " ao mes");
+
+
+    }
+
+    @Override
+    public void depositarCheque(Double a) {
+
+        if (a>0){
+            super.depositarCheque(a);
             System.out.println("rentabilidade mensal: " + rentabilidadePorJuros() + " ao mes");
         }
 
@@ -42,34 +49,20 @@ public class Poupanca extends Conta implements DadosDaConta {
     }
 
     @Override
-    public void depositarCheque(Double a) {
-        super.depositarCheque(a);
-        System.out.println("rentabilidade mensal: " + rentabilidadePorJuros() + " ao mes");
-
-    }
-
-    @Override
     public void sacar(Double a) {
-        if (a < 0) {
-            super.sacar(0.0);
-        } else {
+        if (a>0){
             super.sacar(a);
+            System.out.println("taxa de operação: " + gerarTaxa());
         }
-        System.out.println("taxa de operação: " + gerarTaxa());
-        consultarSaldo();
-
     }
 
     @Override
     public Double gerarTaxa() {
-
         return 0.0;
     }
 
     @Override
     public void dadosConta() {
         consultarSaldo();
-
-
     }
 }

@@ -1,19 +1,27 @@
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Iniciar {
     Scanner scanner = new Scanner(System.in);
-    Poupanca poupanca = new Poupanca(2.0);
+    Poupanca poupanca = new Poupanca(0.0);
     Corrente corrente = new Corrente(0.0);
     Investimento investimento = new Investimento(0.0);
 
     public void inicio() {
-        int opcao;
+        int opcao =0;
         do {
             exibeMenu();
-            opcao = scanner.nextInt();
-            escolheOpcao(opcao);
+            try {
+                opcao = scanner.nextInt();
+                escolheOpcao(opcao);
+            }
+            catch (InputMismatchException e){
+                e.printStackTrace();
+            }
+
+
 
         } while (opcao != 4);
     }
@@ -25,7 +33,6 @@ public class Iniciar {
                 2-Conta poupança
                 3-Conta investimento
                 4-Sair""");
-        System.out.println();
 
     }
 

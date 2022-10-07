@@ -7,12 +7,7 @@ public class Investimento extends Conta implements DadosDaConta {
 
     @Override
     public void setSaldo(Double saldo) {
-        if (saldo != 0) {
-            super.setSaldo(0.0);
-        } else {
-            super.setSaldo(saldo);
-        }
-
+        super.setSaldo(saldo);
     }
 
     @Override
@@ -33,21 +28,18 @@ public class Investimento extends Conta implements DadosDaConta {
 
     @Override
     public void depositarDinheiro(Integer a) {
-        if (a < 0) {
-            super.depositarDinheiro(0);
-        } else {
+        if (a>0){
             super.depositarDinheiro(a);
             System.out.println("rentabilidade mensal: " + taxaSelic() + " ao mes");
         }
+
 
 
     }
 
     @Override
     public void depositarCheque(Double a) {
-        if (a < 0) {
-            super.depositarCheque(0.0);
-        } else {
+        if (a>0){
             super.depositarCheque(a);
             System.out.println("rentabilidade mensal: " + taxaSelic() + " ao mes");
         }
@@ -56,27 +48,18 @@ public class Investimento extends Conta implements DadosDaConta {
 
     @Override
     public void sacar(Double a) {
-        if (a < 0) {
-            super.sacar(0.0);
-        } else {
-            super.sacar(a);
-
+        if (a>0){
             System.out.println("taxa de operação: " + gerarTaxa());
-            consultarSaldo();
         }
-
     }
 
     @Override
     public Double gerarTaxa() {
-
         return 0.0038;
     }
 
     @Override
     public void dadosConta() {
         consultarSaldo();
-
-
     }
 }
